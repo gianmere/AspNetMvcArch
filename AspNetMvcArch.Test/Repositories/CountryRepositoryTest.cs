@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using AspNetMvcArch.Model;
+using AspNetMvcArch.Domain;
 using AspNetMvcArch.Repository;
 using System.Data.Common;
 using System.Collections.Generic;

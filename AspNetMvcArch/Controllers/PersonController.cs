@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
+﻿using System.Net;
 using System.Web.Mvc;
-using AspNetMvcArch.Model;
+using AspNetMvcArch.Domain;
 using AspNetMvcArch.Service;
+using AspNetMvcArch.Models;
+using System.Collections.Generic;
+using AutoMapper;
 
 namespace AspNetMvcArch.Controllers
 {
@@ -24,7 +21,15 @@ namespace AspNetMvcArch.Controllers
         // GET: /Person/
         public ActionResult Index()
         {
-            return View(_PersonService.GetAll());
+            var persons = _PersonService.GetAll();
+            var model = new List<PersonModel>();
+            foreach (var person in persons)
+            {
+                var personModel = AutoMapper.Mapper.Map<PersonModel>(person);
+                model.Add(personModel);
+            }
+
+            return View(model);
         }
 
         // GET: /Person/Details/5
@@ -40,7 +45,10 @@ namespace AspNetMvcArch.Controllers
             {
                 return HttpNotFound();
             }
-            return View(person);
+
+            PersonModel personModel = Mapper.Map<PersonModel>(person);
+
+            return View(personModel);
         }
 
         // GET: /Person/Create
@@ -55,16 +63,18 @@ namespace AspNetMvcArch.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Phone,Address,State,CountryId")] Person person)
+        public ActionResult Create([Bind(Include = "Id,Name,Phone,Address,City,CountryId")] PersonModel personModel)
         {
             if (ModelState.IsValid)
             {
+                var person = Mapper.Map<Person>(personModel);
+
                 _PersonService.Create(person);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CountryId = new SelectList(_CountryService.GetAll(), "Id", "Name", person.CountryId);
-            return View(person);
+            ViewBag.CountryId = new SelectList(_CountryService.GetAll(), "Id", "Name", personModel.CountryId);
+            return View(personModel);
         }
 
         // GET: /Person/Edit/5
@@ -79,8 +89,11 @@ namespace AspNetMvcArch.Controllers
             {
                 return HttpNotFound();
             }
+
+            PersonModel personModel = Mapper.Map<PersonModel>(person);
+
             ViewBag.CountryId = new SelectList(_CountryService.GetAll(), "Id", "Name", person.CountryId);
-            return View(person);
+            return View(personModel);
         }
 
         // POST: /Person/Edit/5
@@ -88,15 +101,16 @@ namespace AspNetMvcArch.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Phone,Address,State,CountryId")] Person person)
+        public ActionResult Edit([Bind(Include = "Id,Name,Phone,Address,City,CountryId")] PersonModel personModel)
         {
             if (ModelState.IsValid)
             {
+                var person = Mapper.Map<Person>(personModel);
                 _PersonService.Update(person);
                 return RedirectToAction("Index");
             }
-            ViewBag.CountryId = new SelectList(_CountryService.GetAll(), "Id", "Name", person.CountryId);
-            return View(person);
+            ViewBag.CountryId = new SelectList(_CountryService.GetAll(), "Id", "Name", personModel.CountryId);
+            return View(personModel);
         }
 
         // GET: /Person/Delete/5
@@ -111,7 +125,8 @@ namespace AspNetMvcArch.Controllers
             {
                 return HttpNotFound();
             }
-            return View(person);
+            var personModel = Mapper.Map<PersonModel>(person);
+            return View(personModel);
         }
 
         // POST: /Person/Delete/5

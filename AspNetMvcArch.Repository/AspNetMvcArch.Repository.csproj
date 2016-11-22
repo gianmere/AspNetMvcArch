@@ -58,11 +58,12 @@
     <Compile Include="Repository\PersonRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\UnitOfWork.cs" />
+    <Compile Include="SampleArchContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AspNetMvcArch.Model\AspNetMvcArch.Model.csproj">
+    <ProjectReference Include="..\AspNetMvcArch.Model\AspNetMvcArch.Domain.csproj">
       <Project>{afc9d48b-d6fa-41e6-84bc-a43713b5e8b7}</Project>
-      <Name>AspNetMvcArch.Model</Name>
+      <Name>AspNetMvcArch.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

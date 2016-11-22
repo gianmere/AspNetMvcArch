@@ -1,10 +1,12 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using AspNetMvcArch.Model;
+using AspNetMvcArch.Models;
 using AspNetMvcArch.Repository;
 using System.Data.Common;
 using System.Collections.Generic;
 using System.Linq;
+using AspNetMvcArch.Domain;
+
 namespace AspNetMvcArch.Test.Repositories
 {
     [TestClass]

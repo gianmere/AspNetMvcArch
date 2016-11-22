@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using AspNetMvcArch.Controllers;
-using AspNetMvcArch.Model;
+using AspNetMvcArch.Models;
+using AspNetMvcArch.Domain;
 using AspNetMvcArch.Service;
 using System.Web.Mvc;
 namespace AspNetMvcArch.Test.Controllers
@@ -51,13 +51,14 @@ namespace AspNetMvcArch.Test.Controllers
         public void Valid_Country_Create()
         {
             //Arrange
-            Country c = new Country() { Name = "test1"};
+            CountryModel c = new CountryModel() { Name = "test1"};
+            Country s = new Country() { Name = "test1" };
 
             //Act
             var result = (RedirectToRouteResult)objController.Create(c);
 
             //Assert 
-            _countryServiceMock.Verify(m => m.Create(c), Times.Once);
+            _countryServiceMock.Verify(m => m.Create(s), Times.Once);
             Assert.AreEqual("Index", result.RouteValues["action"]);
            
         }
@@ -66,14 +67,15 @@ namespace AspNetMvcArch.Test.Controllers
         public void Invalid_Country_Create()
         {
             // Arrange
-            Country c = new Country() { Name = ""};
+            CountryModel c = new CountryModel() { Name = ""};
+            Country s = new Country() { Name = "" };
             objController.ModelState.AddModelError("Error", "Something went wrong");
 
             //Act
             var result = (ViewResult)objController.Create(c);
 
             //Assert
-            _countryServiceMock.Verify(m => m.Create(c), Times.Never);
+            _countryServiceMock.Verify(m => m.Create(s), Times.Never);
             Assert.AreEqual("", result.ViewName);
         }
 

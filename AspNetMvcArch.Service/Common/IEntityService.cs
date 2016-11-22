@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AspNetMvcArch.Model;
+﻿using System.Collections.Generic;
+using AspNetMvcArch.Domain;
 
 namespace AspNetMvcArch.Service
 {

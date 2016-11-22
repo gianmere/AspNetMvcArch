@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using AspNetMvcArch.Model;
 using AspNetMvcArch.Repository;
 using AspNetMvcArch.Service;
+using AspNetMvcArch.Domain;
 
 namespace AspNetMvcArch.Test.Services
 {

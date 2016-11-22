@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AspNetMvcArch.Model;
+﻿using AspNetMvcArch.Domain;
 using AspNetMvcArch.Repository;
 
 namespace AspNetMvcArch.Service
@@ -22,7 +17,8 @@ namespace AspNetMvcArch.Service
 
 
         public Person GetById(long Id) {
-            return _personRepository.GetById(Id);
+            var person = _personRepository.GetById(Id);
+            return person;
         }
     }
 }

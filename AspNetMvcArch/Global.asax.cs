@@ -7,6 +7,9 @@ using System.Web.Routing;
 using Autofac.Integration.Mvc;
 using Autofac;
 using AspNetMvcArch.Modules;
+using AutoMapper;
+using AspNetMvcArch.Domain;
+using AspNetMvcArch.Models;
 
 namespace AspNetMvcArch
 {
@@ -29,6 +32,14 @@ namespace AspNetMvcArch
             var container = builder.Build();
 
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Person, PersonModel>();
+                cfg.CreateMap<PersonModel, Person>();
+                cfg.CreateMap<Country, CountryModel>();
+                cfg.CreateMap<CountryModel, Country>();
+            });
         }
     }
 }

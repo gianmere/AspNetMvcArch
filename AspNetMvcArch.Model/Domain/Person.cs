@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AspNetMvcArch.Model
+namespace AspNetMvcArch.Domain
 {
     [Table("Person")]
     public class Person : AuditableEntity<long>
@@ -26,7 +26,7 @@ namespace AspNetMvcArch.Model
 
         [Required]
         [MaxLength(50)]
-        public string State { get; set; }
+        public string City { get; set; }
 
         [Display(Name="Country")]
         public int CountryId { get; set;  }

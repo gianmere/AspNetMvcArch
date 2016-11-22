@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AspNetMvcArch.Model
+namespace AspNetMvcArch.Domain
 {  
     public interface IEntity<T> 
    {

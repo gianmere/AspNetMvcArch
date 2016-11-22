@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-namespace AspNetMvcArch.Model
+namespace AspNetMvcArch.Domain
 {
     public interface IAuditableEntity 
     {

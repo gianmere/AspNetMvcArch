@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMvcArch", "AspNetMvcArch\AspNetMvcArch.csproj", "{1CAE3387-10C6-49F3-9FE5-65808CFE690C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMvcArch.Model", "AspNetMvcArch.Model\AspNetMvcArch.Model.csproj", "{AFC9D48B-D6FA-41E6-84BC-A43713B5E8B7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMvcArch.Domain", "AspNetMvcArch.Model\AspNetMvcArch.Domain.csproj", "{AFC9D48B-D6FA-41E6-84BC-A43713B5E8B7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMvcArch.Repository", "AspNetMvcArch.Repository\AspNetMvcArch.Repository.csproj", "{AFC7D5EC-1324-49D5-B1E6-7239DC54220B}"
 EndProject

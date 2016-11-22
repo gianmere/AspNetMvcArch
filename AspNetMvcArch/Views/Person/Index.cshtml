@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AspNetMvcArch.Model.Person>
+﻿@model IEnumerable<AspNetMvcArch.Models.PersonModel>
 
 @{
     ViewBag.Title = "Index";
@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Country.Name)
+            @Html.DisplayNameFor(model => model.CountryName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -24,7 +24,7 @@
             @Html.DisplayNameFor(model => model.Address)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.State)
+            @Html.DisplayNameFor(model => model.City)
         </th>
         <th></th>
     </tr>
@@ -32,7 +32,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Country.Name)
+            @Html.DisplayFor(modelItem => item.CountryName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
@@ -44,7 +44,7 @@
             @Html.DisplayFor(modelItem => item.Address)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.State)
+            @Html.DisplayFor(modelItem => item.City)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
