@@ -115,8 +115,10 @@ namespace AspNetMvcArch.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, FormCollection data)
         {
-            Country country = _CountryService.GetById(id);
-            _CountryService.Delete(country);
+            //Country country = _CountryService.GetById(id);
+            //_CountryService.Delete(country);
+
+            _CountryService.Delete(id);
             return RedirectToAction("Index");
         }
     }
