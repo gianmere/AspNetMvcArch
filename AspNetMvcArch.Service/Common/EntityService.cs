@@ -7,8 +7,8 @@ namespace AspNetMvcArch.Service
 {
     public abstract class EntityService<T> : IEntityService<T> where T : BaseEntity
     {
-        IUnitOfWork _unitOfWork;
-        IGenericRepository<T> _repository;
+        private IUnitOfWork _unitOfWork;
+        private IGenericRepository<T> _repository;
 
         public EntityService(IUnitOfWork unitOfWork, IGenericRepository<T> repository)
         {

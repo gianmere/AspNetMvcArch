@@ -3,7 +3,7 @@ using AspNetMvcArch.Domain;
 
 namespace AspNetMvcArch.Service
 {
-    public interface IEntityService<T> : IService
+    public interface IEntityService<T>: IService
      where T : BaseEntity
     {
         void Create(T entity);
