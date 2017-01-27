@@ -33,6 +33,7 @@ namespace AspNetMvcArch
 
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 
+            //AutoMapper Configurazione
             Mapper.Initialize(cfg =>
             {
                 cfg.CreateMap<Person, PersonModel>();
